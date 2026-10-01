@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Amorella Boutique — Project Preview</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-zinc-950 flex items-center justify-center">
+
+  <main class="w-full max-w-md px-6 text-center">
+
+    <!-- LOADING -->
+    <div id="loading">
+
+      <div class="mx-auto mb-6 w-12 h-12 border-4 border-zinc-700 border-t-orange-500 rounded-full animate-spin"></div>
+
+      <h1 class="text-xl font-semibold text-white mb-2">
+        Connecting to Project
+      </h1>
+
+      <p id="status" class="text-sm text-zinc-400">
+        Initializing connection...
+      </p>
+
+      <div class="w-full h-1.5 bg-zinc-800 rounded-full overflow-hidden mt-6">
+        <div
+          id="progress"
+          class="h-full bg-orange-500 transition-all duration-700"
+          style="width: 10%;">
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- RESPONSE -->
+    <div id="response" class="hidden">
+
+      <div class="mx-auto mb-6 w-14 h-14 flex items-center justify-center rounded-full bg-orange-500/10">
+
+        <svg
+          class="w-7 h-7 text-orange-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 9v4m0 4h.01M10.29 3.86l-8.1 14A2 2 0 003.93 21h16.14a2 2 0 001.74-3.14l-8.1-14a2 2 0 00-3.42 0z"
+          />
+        </svg>
+
+      </div>
+
+      <h1 class="text-xl font-semibold text-white mb-3">
+        Project Preview Unavailable
+      </h1>
+
+      <p class="text-sm leading-6 text-zinc-400">
+        This project is currently offline because its previous hosting
+        environment has expired. The website is being prepared for
+        redeployment.
+      </p>
+
+      <a
+        href="index.html"
+        class="inline-block mt-7 px-5 py-2.5 rounded-xl bg-white text-zinc-900 text-sm font-medium hover:bg-zinc-200 transition"
+      >
+        Back to Portfolio
+      </a>
+
+    </div>
+
+  </main>
+
+
+  <script>
+
+    const status = document.getElementById("status");
+    const progress = document.getElementById("progress");
+
+    const loading = document.getElementById("loading");
+    const response = document.getElementById("response");
+
+
+    setTimeout(() => {
+      progress.style.width = "30%";
+      status.textContent = "Connecting to project server...";
+    }, 700);
+
+
+    setTimeout(() => {
+      progress.style.width = "55%";
+      status.textContent = "Loading website resources...";
+    }, 1400);
+
+
+    setTimeout(() => {
+      progress.style.width = "75%";
+      status.textContent = "Checking project availability...";
+    }, 2100);
+
+
+    setTimeout(() => {
+      progress.style.width = "100%";
+      status.textContent = "Finalizing connection...";
+    }, 2700);
+
+
+    setTimeout(() => {
+      loading.classList.add("hidden");
+      response.classList.remove("hidden");
+    }, 3300);
+
+  </script>
+
+</body>
+</html>
